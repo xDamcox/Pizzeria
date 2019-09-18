@@ -7,9 +7,12 @@
 </head>
 <body>
 <c:forEach items="${sugestionList}" var="list">
-    ${list.user}
+    ${list.user.username}
     ${list.text}
     ${list.created}
+    ${list.updated}
+    <td><a href="/sugestion/edit/${list.id}">Edycja</a></td>
+
 </c:forEach>
 </body>
 </html>

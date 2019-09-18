@@ -18,6 +18,7 @@ public class Sugestion {
     @Size(max = 250)
     private String  text;
     private LocalDateTime created;
+    private LocalDateTime updated;
 
     @ManyToOne
     private User user;
@@ -25,15 +26,29 @@ public class Sugestion {
     public Sugestion() {
     }
 
-    public Sugestion(String text, LocalDateTime created, User user) {
+    public Sugestion(String text, LocalDateTime created, User user, LocalDateTime updated) {
         this.text = text;
         this.created = created;
         this.user = user;
+        this.updated = updated;
     }
 
     @PrePersist
     public void prePersiste(){
         created = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    public void preUpdated(){
+        updated = LocalDateTime.now();
+    }
+
+    public LocalDateTime getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(LocalDateTime updated) {
+        this.updated = updated;
     }
 
     public User getUser() {

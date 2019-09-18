@@ -31,11 +31,7 @@ public class User extends BaseEntity {
     @Column(nullable = false)
     private Boolean enabled = Boolean.FALSE;
 
-    @OneToMany
-    @JoinTable(name = "sugestions",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "sugestions_id")
-    )
+    @OneToMany(mappedBy = "user")
     public List<Sugestion> sugestions = new ArrayList<>();
 
 
@@ -45,8 +41,6 @@ public class User extends BaseEntity {
     )
 
     public Set<Role> roles = new HashSet<>();
-
-
 
     public Set<Role> getRoles() {
         return roles;
@@ -148,7 +142,6 @@ public class User extends BaseEntity {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +

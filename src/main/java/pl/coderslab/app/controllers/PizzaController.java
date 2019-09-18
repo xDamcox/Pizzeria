@@ -34,7 +34,7 @@ public class PizzaController {
             return "pizza/add";
         }
         pizzaRepository.save(pizza);
-        return "redirect:/list";
+        return "redirect:/pizza/list";
     }
 
     @GetMapping("/list")
