@@ -43,7 +43,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/register").permitAll()
                 .antMatchers("/").permitAll()
-                .antMatchers("/sugestions").authenticated()
+                .antMatchers("/sugestion/add").authenticated()
+                .antMatchers("/sugestion/list").permitAll()
+                .antMatchers("/pizza/add").authenticated()
+                .antMatchers("/pizza/list").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -52,7 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and();
 
         http.authorizeRequests()
-               .antMatchers("/admin/**").hasAnyRole("USER","ADMIN")
+//               .antMatchers("/admin/**").hasAnyRole("USER","ADMIN")
                 .antMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
                 .anyRequest().permitAll()
                 .and().formLogin()

@@ -10,6 +10,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "sugestions")
 public class Sugestion {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

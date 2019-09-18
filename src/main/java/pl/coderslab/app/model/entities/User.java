@@ -32,6 +32,10 @@ public class User extends BaseEntity {
     private Boolean enabled = Boolean.FALSE;
 
     @OneToMany
+    @JoinTable(name = "sugestions",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "sugestions_id")
+    )
     public List<Sugestion> sugestions = new ArrayList<>();
 
 

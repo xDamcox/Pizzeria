@@ -25,7 +25,7 @@ public class RegisterController {
     @GetMapping
     public String prepareRegistrationPage(Model model){
         model.addAttribute(new User());
-        return "register";
+        return "login/register";
     }
 
     @PostMapping
