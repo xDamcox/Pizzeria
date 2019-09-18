@@ -12,7 +12,7 @@
     ${list.created}
     ${list.updated}
     <td><a href="/sugestion/edit/${list.id}">Edycja</a></td>
-
+    <td><a href="/sugestion/remove/${list.id}">Usuń</a></td>
 </c:forEach>
 </body>
 </html>

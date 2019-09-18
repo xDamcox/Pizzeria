@@ -60,7 +60,22 @@ public class SugestionController {
         }
         sugestion.setUser(user);
         sugestionRepository.save(sugestion);
-        return "redirect:/sugestion/list?"  ;
+        return "redirect:/sugestion/list";
+    }
+
+    @GetMapping("/remove/{id}")
+    public String getRemoveSugestion(@PathVariable Long id, Model model){
+        Sugestion sugestion = sugestionRepository.findById(id).orElse(new Sugestion());
+        model.addAttribute("removeSugestion", sugestion);
+        return "sugestion/remove";
+    }
+
+    @PostMapping("/remove/{id}")
+    public String postRemoveSugestion(@RequestParam String delete, Sugestion sugestion){
+        if(delete.equals("OK")){
+            sugestionRepository.delete(sugestion);
+        }
+        return "redirect:/sugestion/list";
     }
 
     @GetMapping("/list")
