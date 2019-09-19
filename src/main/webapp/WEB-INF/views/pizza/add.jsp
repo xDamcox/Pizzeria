@@ -1,11 +1,4 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: damian
-  Date: 18.09.2019
-  Time: 08:49
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -23,6 +16,13 @@
     a, a:link, a:visited, a:hover, a:active {
         text-decoration: none;
         color: white;
+    }
+
+    body{
+        background-image: url("http://www.pizzapunkt.pl/wp-content/uploads/2017/10/pizza-sub.png");
+        height: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 </style>
 
