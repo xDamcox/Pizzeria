@@ -15,6 +15,17 @@
 </head>
 <body>
 
+<style>
+    .container {
+        width: 60%;
+    }
+
+    a, a:link, a:visited, a:hover, a:active {
+        text-decoration: none;
+        color: white;
+    }
+</style>
+
 <div class="container">
     <section class="hero">
         <div class="hero-body">
@@ -28,44 +39,54 @@
 
     <form:form method="post" modelAttribute="pizza">
     <div class="field">
-        <label class="label">Imię</label>
+        <label class="label">Autor</label>
         <div class="control has-icons-left">
             <form:input cssClass="input" path="author" required="true"/>
             <span class="icon is-small is-left">
-      <i class="fas fa-signature"></i>
-    </span>
+                <i class="fas fa-user"></i>
+            </span>
         </div>
     </div>
 
     <div class="field">
-        <label class="label">Imię</label>
+        <label class="label">Nazwa pizzy</label>
         <div class="control has-icons-left">
             <form:input cssClass="input" path="name" required="true"/>
             <span class="icon is-small is-left">
-      <i class="fas fa-signature"></i>
+      <i class="fas fa-pizza-slice"></i>
     </span>
         </div>
     </div>
 
     <div class="field">
-        <label class="label">Imię</label>
+        <label class="label">Składniki</label>
         <div class="control has-icons-left">
-            <form:input cssClass="input" path="components" required="true"/>
+            <form:textarea cssClass="textarea" path="components" required="true"/>
             <span class="icon is-small is-left">
-      <i class="fas fa-signature"></i>
+      <i class="fas fa-align-justify"></i>
     </span>
         </div>
     </div>
 
     <div class="field">
-        <label class="label">Imię</label>
+        <label class="label">Cena</label>
         <div class="control has-icons-left">
             <form:input cssClass="input" path="price" required="true"/>
             <span class="icon is-small is-left">
-      <i class="fas fa-signature"></i>
+      <i class="fas fa-money-bill-wave"></i>
     </span>
         </div>
     </div>
-    </form:form>
+    <div class="field is-grouped">
+        <div class="control">
+            <button type="submit" class="button is-success">Wyślij</button>
+        </div>
+        <div class="field is-grouped">
+            <div class="control">
+                <button type="button"  class="button is-link">
+                    <a href="/pizza/list">Anuluj</a>
+                </button>
+            </div>
+        </form:form>
 </body>
 </html>
