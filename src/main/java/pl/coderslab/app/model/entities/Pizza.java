@@ -3,6 +3,7 @@ package pl.coderslab.app.model.entities;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
@@ -15,13 +16,35 @@ public class Pizza {
     private String name;
     @NotBlank
     private String components;
+    @NotBlank
+    private String author;
+    @NotNull
+    private Double price;
 
     public Pizza() {
     }
 
-    public Pizza(String name, String components) {
+    public Pizza(String name, String components, String author, Double price) {
         this.name = name;
         this.components = components;
+        this.author = author;
+        this.price = price;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double prince) {
+        this.price = prince;
     }
 
     public Long getId() {
@@ -67,6 +90,8 @@ public class Pizza {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", components='" + components + '\'' +
+                ", author='" + author + '\'' +
+                ", prince='" + price + '\'' +
                 '}';
     }
 }
