@@ -28,6 +28,8 @@
 
     .login{
         color: white;
+        text-shadow: -1px 0 black, 0 1px black,
+        1px 0 black, 0 -1px black
     }
     a, a:link, a:visited, a:hover, a:active {
         text-decoration: none;
@@ -58,7 +60,7 @@
         <form method="post">
             <div class="field">
                 <p class="control has-icons-left has-icons-right">
-                    <input class="input is-64x64" type="text" name="username" placeholder="Nick">
+                    <input class="input is-64x64" type="text" name="username" placeholder="Nick" required="true">
                     <span class="icon is-small is-left">
       <i class="fas fa-envelope"></i>
     </span>
@@ -69,7 +71,7 @@
             </div>
             <div class="field">
                 <p class="control has-icons-left">
-                    <input class="input" type="password" name="password" placeholder="Hasło">
+                    <input class="input" type="password" name="password" placeholder="Hasło" required="true">
                     <span class="icon is-small is-left">
       <i class="fas fa-lock"></i>
     </span>
