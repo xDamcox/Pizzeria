@@ -8,29 +8,66 @@
 </head>
 <body>
 
-<form:form method="post" modelAttribute="sugestion">
-<article class="media">
-    <figure class="media-left">
-        <p class="image is-64x64">
-            <img src="https://bulma.io/images/placeholders/128x128.png">
-        </p>
-    </figure>
-    <div class="media-content">
-        <div class="field">
-            <p class="control">
-                <form:textarea path="text" class="textarea" placeholder="Add a suggestion..."/>
-            </p>
+<style>
+    .container {
+        width: 60%;
+    }
+    body {
+        background-image: url("http://junior.rockyspizzeria.mx/wp-content/uploads/2017/08/Ollies-Pizza-Background-3.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        overflow: hidden;
+    }
+
+    a, a:link, a:visited, a:hover, a:active {
+        text-decoration: none;
+        color: white;
+    }
+    .dodaj{
+        color: white;
+    }
+</style>
+
+<div class="container">
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title dodaj">
+                    Dodaj nową sugestię:
+                </h1>
+            </div>
         </div>
-        <nav class="level">
-            <div class="level-left">
-                <div class="level-item">
-                    <input type="submit" class="button is-info" value="Dodaj"></input>
+    </section>
+
+    <form:form method="post" modelAttribute="sugestion">
+        <article class="media">
+            <figure class="media-left">
+                <p class="image is-64x64">
+                    <img src="https://bulma.io/images/placeholders/128x128.png">
+                </p>
+            </figure>
+            <div class="media-content">
+                <div class="field">
+                    <p class="control">
+                        <form:textarea path="text" class="textarea" placeholder="Add a suggestion..."/>
+                    </p>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button type="submit" class="button is-success">Dodaj</button>
+                    </div>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button type="button" class="button is-link">
+                                <a href="/sugestion/list">Anuluj</a>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </div>
-</article>
-</form:form>
-
+        </article>
+    </form:form>
+</div>
 </body>
 </html>

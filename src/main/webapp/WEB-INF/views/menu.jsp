@@ -1,4 +1,3 @@
-
     <link rel="stylesheet" type="text/css" href="https://dl.dropbox.com/s/fuofvoy5xspbtid/component1.css" />
     <script src="https://dl.dropbox.com/s/61hdusspyx28zs4/modernizr-2.6.2.min.js"></script>
     <meta charset="UTF-8">

@@ -9,11 +9,20 @@
 <body>
 
 <style>
+    body {
+        background-image: url("http://junior.rockyspizzeria.mx/wp-content/uploads/2017/08/Ollies-Pizza-Background-3.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        overflow: hidden;
+    }
     .container {
         width: 60%;
     }
     a, a:link, a:visited, a:hover, a:active {
         text-decoration: none;
+        color: white;
+    }
+    .edit{
         color: white;
     }
 </style>
@@ -22,7 +31,7 @@
     <section class="hero">
         <div class="hero-body">
             <div class="container">
-                <h1 class="title">
+                <h1 class="title edit">
                     Edytuj swoją sugestię:
                 </h1>
             </div>
@@ -31,7 +40,6 @@
 
     <form:form method="post" modelAttribute="editSugestion">
     <div class="field">
-        <label class="label">Sugestie: </label>
         <div class="control has-icons-left">
             <form:textarea cssClass="textarea" path="text" value="${editSugestion.text}" required="true"/>
         </div>
