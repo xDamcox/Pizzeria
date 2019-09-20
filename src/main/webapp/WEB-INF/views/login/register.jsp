@@ -8,7 +8,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
 </head>
-<body>
+<body style="overflow:hidden;">
 <%--<form:form method="post" modelAttribute="user">--%>
 <%--    <p>--%>
 <%--    </p>--%>
@@ -35,19 +35,27 @@
         text-decoration: none;
         color: white;
     }
+    body{
+        background-image: url("https://image.freepik.com/free-photo/slice-delicious-pizza-with-ingredients-textured-wooden-background_23-2147926094.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+    .rejestracja{
+        color: white;
+    }
 </style>
-<sec:authorize access="isAnonymous()">
 <p class="control">
     <button class="button is-success">
         <a href="/"> Strona główna</a>
     </button>
 </p>
+<sec:authorize access="isAnonymous()">
 
 <div class="container">
     <section class="hero">
         <div class="hero-body">
             <div class="container">
-                <h1 class="title">
+                <h1 class="title rejestracja">
                     Rejestracja:
                 </h1>
             </div>
@@ -55,7 +63,7 @@
     </section>
     <form:form method="post" modelAttribute="user">
         <div class="field">
-            <label class="label">Imię</label>
+            <label class="label rejestracja">Imię</label>
             <div class="control has-icons-left">
                 <form:input cssClass="input" path="firstName" required="true"/>
                 <span class="icon is-small is-left">
@@ -65,7 +73,7 @@
         </div>
 
         <div class="field">
-            <label class="label">Nazwisko</label>
+            <label class="label rejestracja">Nazwisko</label>
             <div class="control has-icons-left">
                 <form:input cssClass="input" path="lastName" required="true"/>
                 <span class="icon is-small is-left">
@@ -75,7 +83,7 @@
         </div>
 
         <div class="field">
-            <label class="label">Email</label>
+            <label class="label rejestracja">Email</label>
             <div class="control has-icons-left">
                 <form:input cssClass="input" path="email" required="true"/>
                 <span class="icon is-small is-left">
@@ -85,7 +93,7 @@
         </div>
 
         <div class="field">
-            <label class="label">Nick</label>
+            <label class="label rejestracja">Nick</label>
             <div class="control has-icons-left">
                 <form:input cssClass="input" path="username" required="true"/>
                 <span class="icon is-small is-left">
@@ -95,9 +103,9 @@
         </div>
 
         <div class="field">
-            <label class="label">Hasło</label>
+            <label class="label rejestracja">Hasło</label>
             <div class="control has-icons-left">
-                <form:input cssClass="input" path="password" required="true"/>
+                <form:input type="password" cssClass="input" path="password" required="true"/>
                 <span class="icon is-small is-left">
      <i class="fas fa-unlock-alt"></i>
     </span>
@@ -120,11 +128,23 @@
     </sec:authorize>
 
     <sec:authorize access="isAuthenticated()">
-        <form action="<c:url value="/logout"/>" method="post">
-            <input type="submit" value="Wyloguj">
-            <input type="hidden" name="${_csrf.parameterName}"
-                   value="${_csrf.token}"/>
-        </form>
+        <section class="hero">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title rejestracja">
+                        Jesteś zalogowany, wyloguj się:
+                        <div class="level-center">
+                            <p class="control">
+                            <form action="<c:url value="/logout"/>" method="post">
+                                <input class="button is-success" type="submit" value="Wyloguj">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            </form>
+                            </p>
+                        </div>
+                    </h1>
+                </div>
+            </div>
+        </section>
     </sec:authorize>
 
 </div>

@@ -9,40 +9,47 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
 </head>
-<body>
+<body style="overflow:hidden;">
+<%--    <form method="post">--%>
+<%--        <div><label> User Name : <input type="text" name="username"/> </label></div>--%>
+<%--        <div><label> Password: <input type="password" name="password"/> </label></div>--%>
+<%--        <div><input type="submit" value="Sign In"/></div>--%>
+<%--        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
+<%--    </form>--%>
+<style>
+    body{
+        background-image: url("https://image.freepik.com/free-photo/slice-delicious-pizza-with-ingredients-textured-wooden-background_23-2147926094.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+    .container {
+        width: 40%;
+    }
+
+    .login{
+        color: white;
+    }
+    a, a:link, a:visited, a:hover, a:active {
+        text-decoration: none;
+        color: white;
+    }
+</style>
+<nav class="level">
+    <div class="level-left">
+        <p class="control">
+            <button class="button is-success">
+                <a href="/"> Strona główna</a>
+            </button>
+        </p>
+    </div>
+</nav>
 <sec:authorize access="isAnonymous()">
-    <%--    <form method="post">--%>
-    <%--        <div><label> User Name : <input type="text" name="username"/> </label></div>--%>
-    <%--        <div><label> Password: <input type="password" name="password"/> </label></div>--%>
-    <%--        <div><input type="submit" value="Sign In"/></div>--%>
-    <%--        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
-    <%--    </form>--%>
-    <style>
-        .container {
-            width: 40%;
-        }
-
-        a, a:link, a:visited, a:hover, a:active {
-            text-decoration: none;
-            color: white;
-        }
-    </style>
-
-    <nav class="level">
-        <div class="level-left">
-            <p class="control">
-                <button class="button is-success">
-                    <a href="/"> Strona główna</a>
-                </button>
-            </p>
-        </div>
-    </nav>
 
     <div class="container">
         <section class="hero">
             <div class="hero-body">
                 <div class="container">
-                    <h1 class="title">
+                    <h1 class="title login">
                         Logowanie:
                     </h1>
                 </div>
@@ -90,10 +97,23 @@
 </sec:authorize>
 
 <sec:authorize access="isAuthenticated()">
-    <form action="<c:url value="/logout"/>" method="post">
-        <input type="submit" value="Wyloguj">
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-    </form>
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title login">
+                    Jesteś zalogowany, wyloguj się:
+                    <div class="level-center">
+                        <p class="control">
+                        <form action="<c:url value="/logout"/>" method="post">
+                            <input class="button is-success" type="submit" value="Wyloguj">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        </form>
+                        </p>
+                    </div>
+                </h1>
+            </div>
+        </div>
+    </section>
 </sec:authorize>
 
 </body>
